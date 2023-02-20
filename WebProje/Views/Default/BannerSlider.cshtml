@@ -1,0 +1,14 @@
+﻿@using WebProje.Models
+@model  List<SliderTable>
+
+@foreach (var item in Model)
+{
+    <section style="background-image:url(@item.CoverImage);" id="hero">
+        <h4>@item.SmallTitle</h4>
+        <h2>@item.MediumTitle</h2>
+        <h1>@item.BigTitle</h1>
+        <p>@item.Description</p>
+        <button class="btn btn-primary">Alışverişe Başla</button>
+    </section>
+
+}

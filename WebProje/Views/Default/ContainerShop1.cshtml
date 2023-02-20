@@ -1,0 +1,35 @@
+﻿@using WebProje.Models;
+@model List<Urun>
+
+<section id="product1" class="section-p1">
+    <h2>Yeni Gelenler</h2>
+    <p>Yaz Koleksiyonu ve Yeni Tasarımlar</p>
+    <div class="pro-container">
+
+        @foreach (var item in Model)
+        {
+            <div class="pro">
+                <img src="@item.Resim" alt="">
+                <div class="des">
+                    <span>@item.Marka.Adi</span>
+                    <h5>@item.Adi</h5>
+                    <div class="star">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+
+                    </div>
+                    <h4>₺ @item.Fiyat</h4>
+                </div>
+                <a href="/Sepet/Index/@item.Id" class="cart">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </a>
+            </div>
+        }
+
+    </div>
+</section>
+
+

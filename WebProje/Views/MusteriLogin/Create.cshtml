@@ -1,0 +1,35 @@
+﻿@using WebProje.Models
+@model  List<Musteri1>
+
+<div class="popup">
+    <!--login form-->
+    <div class="letter-w3ls">
+        <form action="/MusteriLogin/Create" method="post">
+            <div class="form-left-to-w3l">
+                <input type="text" name="Adi" placeholder="Kullanıcının Adı" required="">
+            </div>
+            <div class="form-left-to-w3l">
+                <input type="text" name="Soyadi" placeholder="Kullanıcının Soyadı" required="">
+            </div>
+            <div class="form-left-to-w3l">
+                <input type="text" name="Telefon" placeholder="Telefon" required="">
+            </div>
+            <div class="form-left-to-w3l">
+                <input type="email" name="EMail" placeholder="Email" required="">
+            </div>
+            <div class="form-left-to-w3l">
+                <input type="password" name="Sifre" placeholder="Şifre" required="">
+            </div>
+            <div class="form-left-to-w3l margin-zero">
+                <input type="password" name="Sifre" placeholder="Şifre Tekrar" required="">
+            </div>
+            <div class="btnn">
+                <button type="submit">Kaydol</button>
+                <br>
+            </div>
+        </form>
+        <div class="clear"></div>
+    </div>
+    <!--//login form-->
+    <a class="close" href="#">&times;</a>
+</div>

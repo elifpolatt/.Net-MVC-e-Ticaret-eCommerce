@@ -1,0 +1,148 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Cara
+    </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+    <link rel="stylesheet" href="~/WebSite/style.css">
+    <style>
+
+        .basket {
+            border-radius: 8px;
+            background-color: #088178;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: .2px;
+            text-align: center;
+            color: #ffebec;
+            position: absolute;
+            left: 29px;
+            top: 2px;
+            width: 16px;
+            height: 16px;
+            line-height: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <section id="header">
+        <a href="#"><img src="~/WebSite/img/logo.png" alt=""></a>
+        <v>
+            <ul id="navbar">
+                <li><a class="active" href="/Default/Index">Ana Sayfa</a></li>
+                <li><a href="/Shop/Shop">Mağaza</a></li>
+                <li><a href="/Blog/Blog">Blog</a></li>
+                <li><a href="/About/About">Hakkımızda</a></li>
+                <li><a href="/Contact/Contact">İletişim</a></li>
+                @if (Session["EMail"] != null)
+                {
+                    <li id="lg-bag"><a href="/Cart/Cart"><i class="fa-solid fa-bag-shopping"></i><label class="basket"> @{Html.RenderAction("SepetToplamUrunSayisi", "Sepet");}</label></a></li>
+                }
+                <li><a>@Session["Adi"]</a> </li>
+                <li>
+                    <a href="/MusteriLogin/LogOut/" class="nav-link">
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <a href="#" id="close"><i class="fa fa-times" aria-hidden="true"></i></a>
+            </ul>
+            </div>
+            <div id="mobile">
+                <a href="/Cart/Cart"><i class="fa-solid fa-bag-shopping"></i></a>
+                <i id="bar" class="fas fa-outdent"></i>
+            </div>
+
+
+
+    </section>
+
+
+    <div class="content">
+        @RenderBody()
+    </div>
+
+    <section id="newsletter" class="section-p1 section-m1">
+        <div class="newstext">
+            <h4>Yeni Haberler Almak İçin Kaydolun</h4>
+            <p>En son mağazamız ve <span>özel tekliflerimiz</span> hakkında e-posta güncellemeleri alın. </p>
+        </div>
+        <div class="form">
+            <input type="text" placeholder="E-mail">
+
+            <a href="/MusteriLogin/LogOut/" class="nav-link">
+                <button class="normal">Kaydol</button>
+                </a>
+</div>
+    </section>
+
+
+    <footer class="section-p1">
+        <div class="col">
+            <img class="logo" src="img/logo.png" alt="">
+            <h4>İletişim</h4>
+            <p><strong>Adres: </strong> bla bla bla</p>
+            <p><strong>Telefon: </strong> bla bla bla</p>
+            <div class="follow">
+                <h4>Bizi Takip Edin</h4>
+                <div class="icon">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-pinterest"></i>
+                    <i class="fab fa-youtube"></i>
+
+
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <h4>Hakkımızda</h4>
+            <a href="#">Bizi Tanıyın</a>
+            <a href="#">Teslimat Bilgisi</a>
+            <a href="#">Gizlilik Politikası</a>
+            <a href="#">Şartlar ve Koşullar</a>
+            <a href="#">Bizimle İletişim Kurun</a>
+
+
+        </div>
+        <div class="col">
+            <h4>Hesabım</h4>
+            <a href="#">Kaydol</a>
+            <a href="#">Sepetim</a>
+            <a href="#">Yorum</a>
+            <a href="#">Siparişimi Takip Et</a>
+            <a href="#">Yardım</a>
+
+        </div>
+        <div class="col install">
+            <h4>Uygulamayı Yükle</h4>
+            <p>App Strore veya Google Play</p>
+            <div class="row">
+                <img src="img/pay/app.jpg" alt="">
+                <img src="img/pay/play.jpg" alt="">
+                <p>
+                    Güvenli Ödeme Seçenekleri
+                </p>
+                <img src="img/pay/pay.png" alt="">
+
+            </div>
+
+        </div>
+        <div class="copyright">elifpolat</div>
+    </footer>
+
+
+    <script src="~/WebSite/script.js"></script>
+</body>
+</html>

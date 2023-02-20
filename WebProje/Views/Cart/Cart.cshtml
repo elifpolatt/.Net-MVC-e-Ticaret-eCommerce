@@ -1,0 +1,128 @@
+﻿@model List<WebProje.Models.Sepet>
+
+@{
+    ViewBag.Title = "Cart";
+    Layout = "~/Views/Shared/_IndexLayout.cshtml";
+}
+
+<style>
+    a {
+        text-decoration: none;
+        color: #000;
+    }
+
+    .txt {
+        width: 42px !important;
+        height: 24px;
+        border: unset;
+        font-size: 14px;
+        font-weight: 700;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: -.22px;
+        text-align: center;
+        color: #313335;
+        padding: 6px 0 3px;
+        box-sizing: border-box;
+    }
+</style>
+
+
+<section id="page-header" class="about-header">
+    <h2>#sepetim</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, quae! </p>
+
+</section>
+
+<section id="cart" class="section-p1">
+    <h2>Merhaba @Session["Adi"]</h2>
+    <br />
+    @*<h3>Sepetim</h3>*@
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <td>Ürün Resmi</td>
+                <td>Ürün Adı</td>
+                <td>Müşteri Adı</td>
+                <td>Kategori</td>
+                <td>Marka</td>
+                <td>Alış Fiyatı</td>
+                <td>Miktar</td>
+                <td>Toplam Fiyat</td>
+                <td>Tarih</td>
+                <td></td>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td><img src="@item.Urun.Resim" /></td>
+                    <td>@item.Urun.Adi</td>
+                    <td>@item.Musteri1.Adi</td>
+                    <td>@item.Urun.Kategori.Adi</td>
+                    <td>@item.Urun.Marka.Adi</td>
+                    <td>@item.AlisFiyati</td>
+                    <td>
+                        <a><i class="fa fa-minus"></i></a>
+                        @Html.TextBoxFor(x => item.Miktar, new { @class = "txt", data_id = item.Id })
+                        <a><i class="fa fa-plus"></i></a>
+                    </td>
+                    <td>@item.ToplamFiyat</td>
+                    <td>@Convert.ToDateTime(item.Tarih).ToString("dd.MMMM.yyyy")</td>
+                    <td><a href="/Sepet/SepetUrunSil/@item.Id"><i class="fa fa-trash"></i></a></td>
+                    <td><a href="#" class="btn btn-success">Satın Al</a></td>
+
+
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</section>
+
+<section id="cart-add" class="section-p1">
+    <div id="coupon">
+        <h3>Kupon Kullan</h3>
+        <div>
+            <input type="text" placeholder="Kupon Girin">
+            <button class="normal">Kullan</button>
+        </div>
+    </div>
+    <div id="subtotal">
+        <h3>Sepet Toplamı</h3>
+        <table>
+            
+          
+            <tr>
+                <td><strong>Sepet Toplamı</strong></td>
+                <td><strong>@ViewBag.Tutar</strong></td>
+
+            </tr>
+
+        </table>
+        <a href="#" class="normal">
+            <button class="normal">Sepeti Onayla</button></a>
+    </div>
+</section>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    $(function () {
+        $('.txt').on('change', function () {
+            var miktar = $(this).val();
+            var sepetid = $(this).attr('data-id');
+           // alert("SepetID=" + sepetid + " Miktari=" + miktar);
+            $.ajax({
+                url: '/Sepet/DinamikMiktar/',
+                data: { id: sepetid, miktari: miktar },
+                success: function (res) {
+                    document.location.reload();
+                }
+            });
+        });
+    });
+</script>

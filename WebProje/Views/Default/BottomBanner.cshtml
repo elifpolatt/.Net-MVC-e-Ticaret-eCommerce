@@ -1,0 +1,18 @@
+﻿@using WebProje.Models;
+@model List<BottomBanner>
+
+
+<section id="banner3">
+
+    @foreach (var item in Model)
+    {
+        <div style="background-image: url(@item.Resim)" class="banner-box">
+
+            <h2>@item.Baslik</h2>
+            <h3>@item.Aciklama</h3>
+
+        </div>
+
+    }
+
+</section>

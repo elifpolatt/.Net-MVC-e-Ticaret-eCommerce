@@ -1,0 +1,84 @@
+﻿@using WebProje.Models
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<Urun>
+@{
+    ViewBag.Title = "ProductList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content-wrapper">
+    <section class="content">
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Ürün Listesi</h3>
+
+                           
+                            @using (Html.BeginForm("ProductList", "Admin", FormMethod.Post))
+                            {
+                                <div class="card-tools">
+                                    <div class="input-group input-group-sm" style="width: 150px;">
+
+                                        @Html.TextBox("u", null, new { @class = "form-control float-right", @placeholder = "Ürün Ara", @name = "table_search" })
+                                        <div class="input-group-append">
+
+                                            <button type="submit" class="btn btn-default">
+                                                <i class="fas fa-search"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body table-responsive p-0">
+                            <table class="table table-hover text-nowrap">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Adi</th>
+                                        <th>Aciklama</th>
+                                        <th>Fiyat</th>
+                                        <th>Kategori</th>
+                                        <th>Marka</th>
+                                        <th>Güncelle</th>
+                                        <th>Sil</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <th>@item.Id</th>
+                                            <td>@item.Adi</td>
+                                            <td>@item.Aciklama</td>
+                                            <td>@item.Fiyat</td>
+                                            <td>@item.Kategori.Adi</td>
+                                            <td>@item.Marka.Adi</td>
+                                            <td><a href="/Admin/UpdateProduct/@item.Id" class="btn btn-outline-info">Güncelle</a></td>
+                                            <td><a href="/Admin/DeleteProduct/@item.Id" class="btn btn-outline-danger">Sil</a></td>
+
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                            @Html.PagedListPager((IPagedList)Model, page => Url.Action("ProductList", new { page }))
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<link href="~/Content/DataTables/css/dataTables.bootstrap4.css" rel="stylesheet" />
+<script type="text/javascript" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+
+<script>
+    $('#Urun').DataTable();
+</script>

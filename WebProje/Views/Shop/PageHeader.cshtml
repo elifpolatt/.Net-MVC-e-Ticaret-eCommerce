@@ -1,0 +1,12 @@
+﻿@using WebProje.Models;
+@model List<PageHeader>
+
+
+@foreach (var item in Model)
+{
+    <section style="background-image: url(@item.Resim)" id="page-header">
+        <h2>@item.Baslik</h2>
+        <p>@item.Aciklama</p>
+
+    </section>
+}

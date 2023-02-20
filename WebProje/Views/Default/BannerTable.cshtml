@@ -1,0 +1,23 @@
+﻿@using WebProje.Models;
+@model List<BannerTable>
+
+
+
+<section id="sm-banner" class="section-p1">
+    @foreach (var item in Model)
+    {
+
+
+        <div style="background-image: url(@item.Resim)" class="banner-box">
+            <h4>@item.KucukBaslik</h4>
+            <h2>@item.BuyukBaslik</h2>
+            <span>@item.OrtaBaslik</span>
+            <button class="white">Daha Fazla</button>
+
+
+        </div>
+
+
+    }
+</section>
+

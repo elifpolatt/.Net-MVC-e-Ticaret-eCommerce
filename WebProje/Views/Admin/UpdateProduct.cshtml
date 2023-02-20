@@ -1,0 +1,39 @@
+﻿@using WebProje.Models
+@model WebProje.Models.Urun
+@{
+    ViewBag.Title = "UpdateProduct";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content-wrapper">
+    <section class="content">
+        <div class="container-fluid">
+
+
+
+            <h2>Ürün Güncelle</h2>
+            @using (Html.BeginForm("UpdateProduct", "Admin", FormMethod.Post))
+            {
+                <label>Ürün ID</label>
+                @Html.TextBoxFor(p => p.Id, new { @class = "form-control" })
+                <label>Ürün Adı</label>
+                @Html.TextBoxFor(p => p.Adi, new { @class = "form-control" })
+                <label>Ürün Açıklama</label>
+                @Html.TextAreaFor(p => p.Aciklama,5,5, new { @class = "form-control" })
+                <label>Fiyat</label>
+                @Html.TextBoxFor(p => p.Fiyat, new { @class = "form-control" })
+                <label>Resim</label>
+                @Html.TextBoxFor(r => r.Resim, new { @class = "form-control" })
+                <label>Kategori</label>
+                @Html.DropDownListFor(u => u.Kategori.Id, (List<SelectListItem>)ViewBag.kategori, new { @class = "form-control" })
+                <label>Marka</label>
+                @Html.DropDownListFor(p => p.Marka.Id, (List<SelectListItem>)ViewBag.markavalues, new { @class = "form-control" })
+
+                <br />
+                <button class="btn btn-outline-info">Güncelle</button>
+            }
+
+        </div>
+    </section>
+</div>
+

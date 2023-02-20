@@ -1,0 +1,36 @@
+﻿@using WebProje.Models
+@model WebProje.Models.Blog
+@{
+    ViewBag.Title = "UpdateBlog";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="content-wrapper">
+    <section class="content">
+        <div class="container-fluid">
+
+            <h2>Kategori Güncelle</h2>
+            @using (Html.BeginForm("UpdateBlog", "Admin", FormMethod.Post))
+            {
+                <label>Blog ID</label>
+                @Html.TextBoxFor(k => k.Id, new { @class = "form-control" })
+                <label>Blog Adı</label>
+                @Html.TextBoxFor(k => k.Baslik, new { @class = "form-control" })
+                <label>Açıklama</label>
+                @Html.TextBoxFor(k => k.Aciklama, new { @class = "form-control" })
+                <label>Tarih</label>
+                @Html.TextBoxFor(k => k.Tarih, new { @class = "form-control" })
+                <label>Resim</label>
+                @Html.TextBoxFor(k => k.Resim, new { @class = "form-control" })
+
+                <br />
+
+                <button class="btn btn-outline-info">Güncelle</button>
+            }
+
+        </div>
+    </section>
+</div>
+
+

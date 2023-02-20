@@ -1,0 +1,30 @@
+﻿@using WebProje.Models
+@model WebProje.Models.Kategori
+@{
+    ViewBag.Title = "UpdateCategory";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="content-wrapper">
+    <section class="content">
+        <div class="container-fluid">
+
+            <h2>Kategori Güncelle</h2>
+            @using (Html.BeginForm("UpdateCategory", "Admin", FormMethod.Post))
+            {
+                <label>Kategori ID</label>
+                @Html.TextBoxFor(k=>k.Id, new { @class="form-control"})
+                <label>Kategori Adı</label>
+                @Html.TextBoxFor(k=>k.Adi, new {@class = "form-control"})
+                <label>Açıklama</label>
+                @Html.TextBoxFor(k=>k.Aciklama, new { @class = "form-control"})
+
+                <br />
+
+                <button class="btn btn-outline-info">Güncelle</button>
+            }
+
+        </div>
+    </section>
+</div>

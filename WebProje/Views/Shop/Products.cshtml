@@ -1,0 +1,29 @@
+﻿@using WebProje.Models;
+@model List<Urun>
+
+
+<div class="pro-container">
+
+    @foreach (var item in Model)
+    {
+        <div class="pro" onclick="window.location.href='/ProductDetails/ProductDetails';">
+            <img src="@item.Resim" alt="">
+            <div class="des">
+                <span>@item.Marka.Adi</span>
+                <h5>@item.Adi</h5>
+                <div class="star">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+
+                </div>
+                <h4>₺ @item.Fiyat</h4>
+            </div>
+            <a href="/Sepet/Index/@item.Id" class="cart">
+                <i class="fa-solid fa-cart-shopping"></i>
+            </a>
+        </div>
+    }
+</div>

@@ -1,0 +1,152 @@
+﻿
+@using WebProje.Models
+@model WebProje.Models.Urun
+
+@{
+    ViewBag.Title = "ProductDetails";
+    Layout = "~/Views/Shared/_IndexLayout.cshtml";
+}
+
+<section id="prodetails" class="section-p1">
+    <div class="single-pro-image">
+        <img src="~/WebSite/img/products/f1.jpg" width="100%" id="MainImg" alt="">
+
+        <div class="small-img-group">
+            <div class="small-img-col">
+                <img src="img/products/f1.jpg" width="100%" class="small-img" alt="">
+            </div>
+            <div class="small-img-col">
+                <img src="img/products/f2.jpg" width="100%" class="small-img" alt="">
+            </div>
+            <div class="small-img-col">
+                <img src="img/products/f3.jpg" width="100%" class="small-img" alt="">
+            </div>
+            <div class="small-img-col">
+                <img src="img/products/f4.jpg" width="100%" class="small-img" alt="">
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="single-pro-details">
+        <h6>Tişörtler</h6>
+        <h4>Erkek, Desenli Tişörtler</h4>
+        <h2>₺250</h2>
+        <select>
+            <option>Beden Seçin</option>
+            <option>XL</option>
+            <option>XXL</option>
+            <option>Small</option>
+            <option>Large</option>
+
+        </select>
+        <input type="number" value="1">
+        <br />
+        @using (Html.BeginForm("Index", "MusteriLogin", FormMethod.Post))
+        {
+
+            <button type="submit" class="normal">
+                Sepete Ekle
+            </button>
+        }
+
+
+
+
+        <h4>Ürün Detayları</h4>
+        <span>
+            %55 Pamuk, %45 Polyester, Desenli, Salaş, Kısa Kollu, Cepsiz, Yaz Koleksiyonu,
+            Ürün Kodu : 4A4822200215HAK. Yıkama Talimatı: Makine yıkama suyu sıcaklığı 30 dereceyi geçmemelidir.
+            Hassas Kuru Temizleme Yapılabilir. Ağartıcı Kullanılmaz. Sererek Kurutunuz. Düşük Isıda Ütülenmelidir.
+        </span>
+
+
+    </div>
+
+</section>
+
+<section id="product1" class="section-p1">
+    <h2>Yeni Gelenler</h2>
+    <p>Yaz Koleksiyonu | Modern Tasarımlar</p>
+    <div class="pro-container">
+        <div class="pro">
+            <img src="/WebSite/img/products/n1.jpg" alt="">
+            <div class="des">
+                <span>adidas</span>
+                <h5>Cartoon Astronaut T-Shirts</h5>
+                <div class="star">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+
+                </div>
+                <h4>$78</h4>
+            </div>
+            <a href="#" class="cart">
+                <i class="fa-solid fa-cart-shopping"></i>
+            </a>
+        </div>
+        <div class="pro">
+            <img src="/WebSite/img/products/n2.jpg" alt="">
+            <div class="des">
+                <span>adidas</span>
+                <h5>Cartoon Astronaut T-Shirts</h5>
+                <div class="star">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+
+                </div>
+                <h4>$78</h4>
+            </div>
+            <a href="#" class="cart">
+                <i class="fa-solid fa-cart-shopping"></i>
+            </a>
+        </div>
+        <div class="pro">
+            <img src="/WebSite/img/products/n3.jpg" alt="">
+            <div class="des">
+                <span>adidas</span>
+                <h5>Cartoon Astronaut T-Shirts</h5>
+                <div class="star">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+
+                </div>
+                <h4>$78</h4>
+            </div>
+            <a href="#" class="cart">
+                <i class="fa-solid fa-cart-shopping"></i>
+            </a>
+        </div>
+        <div class="pro">
+            <img src="/WebSite/img/products/n4.jpg" alt="">
+            <div class="des">
+                <span>adidas</span>
+                <h5>Cartoon Astronaut T-Shirts</h5>
+                <div class="star">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+
+                </div>
+                <h4>$78</h4>
+            </div>
+            <a href="#" class="cart">
+                <i class="fa-solid fa-cart-shopping"></i>
+            </a>
+        </div>
+
+    </div>
+</section>
+

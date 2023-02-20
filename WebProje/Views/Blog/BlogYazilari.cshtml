@@ -1,0 +1,22 @@
+﻿@using WebProje.Models
+@model List<Blog>
+
+
+
+@foreach (var item in Model)
+{
+    <div class="blog-box">
+        <div class="blog-img">
+            <img src="@item.Resim" alt="">
+        </div>
+        <div class="blog-details">
+            <h4>@item.Baslik</h4>
+            <p>@item.Aciklama</p>
+            <a href="#">Devamını Oku</a>
+        </div>
+        <h1>@Convert.ToDateTime(item.Tarih).ToString("dd-MM")</h1>
+    </div>
+}
+
+
+

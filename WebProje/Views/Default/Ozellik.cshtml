@@ -1,0 +1,18 @@
+﻿@using WebProje.Models;
+@model List<SiteOzellik>
+
+<section id="feature" class="section-p1">
+
+    @foreach (var item in Model)
+    {
+        <div class="fe-box">
+            <img src="@item.Resim" alt="">
+            <h6>@item.Ozellik</h6>
+        </div>
+
+    }
+
+
+
+
+</section>

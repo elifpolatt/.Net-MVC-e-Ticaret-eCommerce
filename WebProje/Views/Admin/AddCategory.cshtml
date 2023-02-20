@@ -1,0 +1,35 @@
+﻿@using WebProje.Models
+@model WebProje.Models.Kategori
+@{
+    ViewBag.Title = "AddCategory";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="content-wrapper">
+    <section class="content">
+        <div class="container-fluid">
+
+
+            <h2>Kategori Ekle</h2>
+            @using (Html.BeginForm("AddCategory", "Admin", FormMethod.Post))
+            {
+                <label>Kategori Adı</label>
+                @Html.TextBoxFor(k => k.Adi, new { @class = "form-control" })
+                @Html.ValidationMessageFor(k => k.Adi, "", new { @style = "color:red" })
+                <br /> <br />
+
+                <label>Açıklama</label>
+                @Html.TextBoxFor(k => k.Aciklama, new { @class = "form-control" })
+
+                <br />
+                <button class="btn btn-outline-info">Ekle</button>
+            }
+
+
+
+
+
+        </div>
+    </section>
+</div>
+
+

@@ -1,0 +1,76 @@
+﻿@using WebProje.Models
+@model List<Blog>
+@{
+    ViewBag.Title = "BlogList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content-wrapper">
+    <section class="content">
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Blog Listesi</h3>
+
+
+                            @using (Html.BeginForm("BlogList", "Admin", FormMethod.Post))
+                            {
+                                <div class="card-tools">
+                                    <div class="input-group input-group-sm" style="width: 150px;">
+                                        @*<input type="text" name="table_search" class="form-control float-right" placeholder="Search">*@
+                                        @Html.TextBox("b", null, new { @class = "form-control float-right", @placeholder = "Blog Ara", @name = "table_search" })
+
+                                        <div class="input-group-append">
+                                            <button type="submit" class="btn btn-default">
+                                                <i class="fas fa-search"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body table-responsive p-0">
+                            <table class="table table-hover text-nowrap">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Baslik</th>
+                                        <th>Açıklama</th>
+                                        <th>Tarih</th>
+                                        <th>Resim</th>
+
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>@item.Id</td>
+                                            <td>@item.Baslik</td>
+                                            <td>@item.Aciklama</td>
+                                            <td>@item.Tarih</td>
+                                            <td>@item.Resim</td>
+                                            <td><a href="/Admin/UpdateBlog/@item.Id" class="btn btn-outline-info">Güncelle</a></td>
+                                            <td><a href="/Admin/DeleteBlog/@item.Id" class="btn btn-outline-danger">Sil</a></td>
+
+                                        </tr>
+                                    }
+                                    
+                                </tbody>
+
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+            </div>
+
+        </div>
+    </section>
+</div>

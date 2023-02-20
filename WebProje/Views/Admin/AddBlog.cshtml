@@ -1,0 +1,31 @@
+﻿@using WebProje.Models
+@model WebProje.Models.Blog
+@{
+    ViewBag.Title = "AddBlog";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content-wrapper">
+    <section class="content">
+        <div class="container-fluid">
+
+            <h2>Blog Ekle</h2>
+            @using (@Html.BeginForm("AddBlog", "Admin", FormMethod.Post)) {
+            <label>Blog Başlığı</label>
+            @Html.TextBoxFor(b => b.Baslik, new { @class = "form-control" })
+            <label>Açıklama</label>
+            @Html.TextBoxFor(b => b.Aciklama, new { @class = "form-control" })
+            <label>Tarih</label>
+            @Html.TextBoxFor(b => b.Tarih, new { @class = "form-control" })
+            <label>Resim</label>
+            @Html.TextBoxFor(b => b.Resim, new { @class = "form-control" })
+
+            <br />
+            <button class="btn btn-outline-info">Ekle</button>
+            }
+
+
+
+        </div>
+    </section>
+</div>
